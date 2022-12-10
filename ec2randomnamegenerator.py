@@ -32,7 +32,7 @@ for str in team_department:
 ec2_amount = int(input("How many EC2 instances are needed? Enter the number: ")) 
 
 if ec2_amount < 0:    
-    print("Enter a valid number")
+    print("You must enter a valid number")
     exit()
     
 elif ec2_amount > 0:    
