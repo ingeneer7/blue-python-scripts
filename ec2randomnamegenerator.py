@@ -4,23 +4,23 @@ import string
 
 #Generates the random characters and numbers as a unique name
 def string_generator(size=12, string=string.ascii_letters + string.digits):    
-    return ''.join(random.choice(string) for _ in range(size))
+    return ''.join(random.choice(string) for str in range(size))
     
 #Enables team members to input the department name as a unique name
-department = input("What is the name of your department? Enter Here: ")
+team_department = input("What is the name of your department? Enter Here: ")
 
 #List the department choices team members have
-for _ in department:
+for str in team_department:
 
-    if department == "Marketing" or department.lower() == "marketing" :
+    if team_department == "Marketing" or team_department.lower() == "marketing" :
         print("Department Verified ✔")
         break
 
-    elif department == "Accounting" or department.lower() == "accounting" :
+    elif team_department == "Accounting" or team_department.lower() == "accounting" :
         print("Department Verified ✔")
         break
 
-    elif department == "FinOps" or department.lower() == "finops" :
+    elif team_department == "FinOps" or team_department.lower() == "finops" :
         print("Department Verified ✔")
         break
 
@@ -29,17 +29,19 @@ for _ in department:
         exit()  
 
 #The number of EC2 instances that team members can input
-number = int(input("How many EC2 instances are needed? Enter the number: ")) 
+ec2_amount = int(input("How many EC2 instances are needed? Enter the number: ")) 
 
-if number < 0:    
-    print("Enter a valid number: ") 
-elif number > 0:    
+if ec2_amount < 0:    
+    print("Enter a valid number")
+    exit()
+    
+elif ec2_amount > 0:    
     print("One Moment please....")
 
 #Generates and prints the unique EC2 names at random
 print("Results loading ██████████████]")
 
-for _ in range(1, number + 1):    
-    unique_name = department    
-    EC2_unique_name = unique_name + "-" + string_generator()
-    print("Your EC2 Instance's unique name is : ", EC2_unique_name)
+for str in range(1, ec2_amount + 1):    
+    instance_name = team_department    
+    EC2_random_name = instance_name + "-" + string_generator()
+    print("Your EC2 name has been generated : ", EC2_random_name)
