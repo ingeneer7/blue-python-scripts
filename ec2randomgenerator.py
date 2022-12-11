@@ -3,7 +3,7 @@ import random
 import string
 
 #Generates the random characters and numbers as a unique name
-def string_generator(size=12, string=string.ascii_letters + string.digits):    
+def string_generator(size=13, string=string.ascii_letters + string.digits):    
     return ''.join(random.choice(string) for str in range(size))
     
 #Enables team members to input the department name as a unique name
