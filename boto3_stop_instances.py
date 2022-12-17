@@ -16,6 +16,13 @@ ec2 = boto3.resource("ec2")
 
 for instance in ec2.instances.all():
     instance.stop()
+    
+ec2 = boto3.resource("ec2")
+
+ec2_instance = {"Name": "instance-state-name", "Values": ["running"]}
+
+for instance in ec2.instances.filter(Filters=[ec2_instance]):
+    instance.stop()
 
 #Script that stops running EC2 instances witht the dev tag
 ec2 = boto3.resource("ec2")
