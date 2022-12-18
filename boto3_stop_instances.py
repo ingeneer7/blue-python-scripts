@@ -15,7 +15,10 @@ for reservation in response['Reservations']:
 ec2 = boto3.resource("ec2")
 
 for instance in ec2.instances.all():
-    instance.stop()
+    try:    
+        instance.stop()
+    except:
+        pass
 
 #Script that stops running EC2 instances witht the dev tag
 ec2 = boto3.resource("ec2")
