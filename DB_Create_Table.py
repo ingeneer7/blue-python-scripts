@@ -4,14 +4,14 @@ dynamodb = boto3.resource('dynamodb')
 
 
 table = dynamodb.create_table(
-    TableName='Movies',
+    TableName='Cars',
     KeySchema=[
         {
             'AttributeName': 'year',
             'KeyType': 'HASH'  # Partition key
         },
         {
-            'AttributeName': 'title',
+            'AttributeName': 'model',
             'KeyType': 'RANGE'  # Sort key
         }
     ],
@@ -21,7 +21,7 @@ table = dynamodb.create_table(
             'AttributeType': 'N'
         },
         {
-            'AttributeName': 'title',
+            'AttributeName': 'model',
             'AttributeType': 'S'
         },
 
@@ -35,5 +35,5 @@ table = dynamodb.create_table(
 print('Table status:', table.table_status)
 
 print('Waiting for', table.name, 'to complete creating...')
-table.meta.client.get_waiter('table_exists').wait(TableName='Movies')
-print('Table status:', dynamodb.Table('Movies').table_status)
+table.meta.client.get_waiter('table_exists').wait(TableName='Cars')
+print('Table status:', dynamodb.Table('Cars').table_status)
